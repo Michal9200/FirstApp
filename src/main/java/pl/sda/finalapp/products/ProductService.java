@@ -31,10 +31,10 @@ public class ProductService {
             products = productRepository.findByTitleAndCategoryId(query,categoryId);
         } else if (productType != null) {
             products = productRepository.findByProductType(productType);
-        } else if (query != null || !query.isBlank()) {
-            products = productRepository.findByTitle(query);
-        } else {
+        } else if (categoryId != null) {
             products = productRepository.findByCategoryId(categoryId);
+        } else {
+            products = productRepository.findByTitle(query);
         }
         return products.stream()
                 .map(p -> createProductListDto(p))

@@ -23,7 +23,8 @@
         <option
                 th:each="category : ${categoriesWithId}"
                 th:value="${category.id}"
-                th:text="${category.idWithName}">
+                th:text="${category.idWithName}"
+                th:selected="${categoriesWithId eq category}">
         </option>
     </select>
     <button>Wyszukaj</button>

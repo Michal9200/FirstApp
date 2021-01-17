@@ -26,7 +26,7 @@ public class ProductController {
     @GetMapping("/products") // todo dodać wyszukiwanie po kategorii
     String productList(@RequestParam(value = "query", required = false) String query,
                        @RequestParam(value = "productType", required = false) ProductType productType,
-                       @RequestParam(value = "category.id", required = false) Integer categoryId,
+                       @RequestParam(value = "categoryId", required = false) Integer categoryId,
                        Model model) {
         model.addAttribute("productsList", productService.findProducts(query, productType, categoryId));
         model.addAttribute("searchText", query);
